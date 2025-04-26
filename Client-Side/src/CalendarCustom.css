@@ -1,0 +1,123 @@
+/* Global Custom Colors */
+:root {
+    --color-primary: #B24BF3 !important;    /* Vibrant purple */
+    --color-secondary: #90769D !important;  /* Soft lavender */
+    --color-tertiary: #FFFE9F !important;    /* Pale yellow */
+    --color-background: #f4f4f4 !important;  /* Light grey background */
+    --color-text: #333 !important;           /* Dark text for readability */
+    --color-border: #ddd !important;         /* Light border color */
+  }
+  
+  /* Calendar container styling */
+  .styled-calendar {
+    background-color: var(--color-background) !important;  /* Background color */
+    font-family: 'Arial', sans-serif !important;            /* Clean font */
+    border-radius: 12px !important;      
+    width:100% !important;                  /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important; /* Soft shadow */
+    padding: 16px !important; /* Padding for spacing */
+  }
+  
+  /* Active date tile styling */
+  .styled-calendar .react-calendar__tile--active {
+    color: white !important;                               /* White text on active tile */
+    border-radius: 50% !important;                         /* Round active date */
+  }
+  
+  /* Hover effect on date tiles */
+  .styled-calendar .react-calendar__tile:hover {
+    background-color: var(--color-secondary) !important;  /* Light hover effect */
+    color: white !important;                               /* White text */
+    cursor: pointer !important;                           /* Pointer cursor */
+    transition: background-color 0.3s ease !important;     /* Smooth transition */
+  }
+  
+  /* Weekday names (Mon, Tue, etc.) styling */
+  .styled-calendar .react-calendar__month-view__weekdays__weekday {
+    font-size: 0.9rem !important; /* Smaller font for weekdays */
+    color: var(--color-text) !important; /* Dark color for weekdays */
+    font-weight: normal !important; /* Regular font weight */
+    text-align: center !important;  /* Center-align weekdays */
+  }
+  
+  /* Styling for the current day */
+  .styled-calendar .react-calendar__tile--now {
+    background-color: var(--color-tertiary) !important;  /* Light yellow for current day */
+    color: var(--color-primary) !important;             /* Primary color for current day text */
+    font-weight: bold !important;                       /* Bold font for emphasis */
+    border-radius: 50% !important;                      /* Rounded current day */
+  }
+  
+  /* Styling for weekend days (Saturday and Sunday) */
+  .styled-calendar .react-calendar__month-view__days__day--weekend {
+    color: #f44336 !important;  /* Red color for weekends */
+    font-weight: bold !important; /* Bold weekend day names */
+  }
+  
+  /* Month name (e.g., 'January') styling */
+  .styled-calendar .react-calendar__month-view__month {
+    font-size: 1.5rem !important;  /* Bigger font for month name */
+    color: var(--color-primary) !important;  /* Primary color for month name */
+    font-weight: bold !important;   /* Bold font for month name */
+    text-align: center !important;  /* Center-align month */
+    margin-bottom: 16px !important; /* Space below the month name */
+  }
+  
+  /* Styling for the navigation buttons (previous and next month) */
+  .styled-calendar .react-calendar__navigation button {
+    background-color: var(--color-primary) !important;
+    border: 2px solid var(--color-primary) !important;
+    padding: 8px !important;
+    color: white !important;
+    transition: background-color 0.3s ease !important; /* Smooth transition */
+  }
+  
+
+  /* 🚫 REMOVE all styling from navigation label button */
+   .styled-calendar .react-calendar__navigation__label {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font: inherit !important;
+    color: inherit !important;
+    box-shadow: none !important;
+    outline: none !important;
+    cursor: pointer !important;
+    transition: none !important;
+  }
+  
+  
+  
+  
+  
+  /* Hover effect on navigation buttons */
+  .styled-calendar .react-calendar__navigation button:hover {
+    background-color: var(--color-secondary) !important;
+    border-color: var(--color-secondary) !important;
+    color: white !important;
+    cursor: pointer !important;
+  }
+  
+  /* Styling for the arrow navigation icons */
+  .styled-calendar .react-calendar__navigation__prev2-button,
+  .styled-calendar .react-calendar__navigation__next2-button {
+    font-size: 1.2rem !important;
+    color: var(--color-text) !important;
+  }
+  
+  /* Styling for the calendar header (month, year) */
+  .styled-calendar .react-calendar__navigation__label {
+    font-size: 1.2rem !important;
+    color: var(--color-primary) !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important; /* Capitalize header */
+  }
+  
+  /* Styling for day of the week labels */
+  .styled-calendar .react-calendar__month-view__weekdays__weekday abbr {
+    text-decoration: none !important;
+    font-weight: bold !important;
+    color: var(--color-text) !important;
+  }
+  
