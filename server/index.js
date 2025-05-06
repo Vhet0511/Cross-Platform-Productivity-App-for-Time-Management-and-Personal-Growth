@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const User = require('./models/user.model.js');
 const userRoutes = require('./routes/user.route.js');
+const stickyRoutes = require('./routes/sticky.route');
 
 mongoose.connect('mongodb://localhost:27017/')
   .then(() => console.log('Connected to database!'))
@@ -10,7 +11,11 @@ mongoose.connect('mongodb://localhost:27017/')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use('/api/users', userRoutes);
+
+app.use('/api/stickies', stickyRoutes);
+
 
 
 

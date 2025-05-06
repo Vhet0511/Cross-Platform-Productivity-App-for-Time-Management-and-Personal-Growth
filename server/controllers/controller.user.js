@@ -81,6 +81,7 @@ exports.loginUser = async (req, res) => {
     }
   };
 
+  //get user by email
   exports.getUserByEmail = async (req, res) => {
     try {
       const { email } = req.params;
@@ -92,7 +93,7 @@ exports.loginUser = async (req, res) => {
     }
   };
 
-  
+  //update user by email
   exports.updateUserByEmail = async (req, res) => {
     try {
       const { email } = req.params;
