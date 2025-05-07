@@ -63,3 +63,26 @@ exports.deleteTimeLog = async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 };
+
+exports.getLogsByUserAndDate = async (req, res) => {
+  try {
+    const { userId, date } = req.query;
+
+    if (!userId || !date) {
+      return res.status(400).json({ error: "Both 'userId' and 'date' query parameters are required." });
+    }
+
+    const parsedDate = new Date(date);
+    const startOfDay = new Date(parsedDate.setHours(0, 0, 0, 0));
+    const endOfDay = new Date(parsedDate.setHours(23, 59, 59, 999));
+
+    const logs = await TimeLog.find({
+      userId,
+      startTime: { $gte: startOfDay, $lte: endOfDay }
+    }).select("-__v");
+
+    res.status(200).json(logs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

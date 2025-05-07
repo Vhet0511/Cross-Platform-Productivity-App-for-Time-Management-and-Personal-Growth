@@ -63,3 +63,27 @@ exports.deleteEvent = async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 };
+
+exports.getEventsByUserAndDate = async (req, res) => {
+  try {
+    const { userId, date } = req.query;
+
+    if (!userId || !date) {
+      return res.status(400).json({ error: 'Both userId and date are required.' });
+    }
+
+    const startOfDay = new Date(date);
+    const endOfDay = new Date(date);
+    endOfDay.setHours(23, 59, 59, 999);
+
+    const events = await EventPlan.find({
+      userId,
+      startTime: { $gte: startOfDay, $lte: endOfDay }
+    }).select("-__v");
+
+    res.status(200).json(events);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+

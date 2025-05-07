@@ -2,6 +2,8 @@
 import React from 'react';
 import CalendarWrapper from './CalendarWrapper';
 import DateDetails from './DateDetails';
+import AddLog from './AddLog';
+import AddEvent from './AddEvent';
 
 const CalendarPage: React.FC = () => {
   const [selectedDate, setSelectedDate] = React.useState<Date>(new Date());
@@ -13,6 +15,14 @@ const CalendarPage: React.FC = () => {
         setSelectedDate={setSelectedDate}
       />
       <DateDetails selectedDate={selectedDate} />
+            <div className="w-full flex flex-row">
+              <div className="w-full">
+            <AddLog />
+            </div>
+            <div className="w-full">
+            <AddEvent />
+            </div>
+          </div>
     </div>
   );
 };

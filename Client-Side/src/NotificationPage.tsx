@@ -1,4 +1,12 @@
 export default function NotificationPage() {
+  const staticNotifications = [
+    "✅ Account created successfully",
+    "🔐 Logged in to your account",
+    "📲 Session started on your device",
+    "🕒 Last login recorded",
+    "🔄 Preferences synced across devices"
+  ];
+
   return (
     <div className="p-6">
       {/* Top Heading */}
@@ -6,12 +14,14 @@ export default function NotificationPage() {
 
       {/* Inbox-style card area */}
       <div className="bg-white border rounded-lg shadow-sm divide-y">
-        {/* Simulating an empty inbox with one section */}
-        <div className="p-6 text-center text-gray-500">
-          <p className="text-xl mb-2">📭</p>
-          <p className="text-base font-medium">You have no notifications</p>
-          <p className="text-sm text-gray-400">Your alerts, updates, and reminders will appear here.</p>
-        </div>
+        {staticNotifications.map((note, index) => (
+          <div
+            key={index}
+            className="p-4 mb-4 bg-gray-50 border border-gray-300 rounded-lg shadow-md hover:shadow-lg transition-all"
+          >
+            <p className="text-sm text-gray-800">{note}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
