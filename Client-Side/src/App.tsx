@@ -8,6 +8,8 @@ import ProfilePage from './ProfilePage.tsx';
 import JournalPage from './JournalPage.tsx';
 import StickyNotePage from './StickyNotePage.tsx';
 import AuthPage from './AuthPage.tsx'; // import the login page
+import SignupPage from './SignupPage.tsx'; //  import the SignupPage
+
 
 // Define the User interface for better type safety
 interface User {
@@ -17,8 +19,11 @@ interface User {
 }
 
 export default function App() {
+  
   const [active, setActive] = useState('calendar');
   const [user, setUser] = useState<User | null>(null);
+  const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
+
 
   // Load user data from sessionStorage on initial load
   useEffect(() => {
@@ -28,9 +33,11 @@ export default function App() {
 
   
   if (!user) {
-    return <AuthPage setUser={setUser} />;
+    return authMode === 'login' 
+      ? <AuthPage setUser={setUser} switchToSignup={() => setAuthMode('signup')} />
+      : <SignupPage setUser={setUser} switchToLogin={() => setAuthMode('login')} />;
   }
-
+  
 
   // Define the mapping for main content pages
   const pages: { [key: string]: JSX.Element } = {
@@ -46,6 +53,7 @@ export default function App() {
       <Appbar active={active} setActive={setActive} />
       <div className="flex flex-1 flex-col w-full">
         {pages[active] || <div className="p-4">Welcome!</div>}
+        
       </div>
     </div>
   );

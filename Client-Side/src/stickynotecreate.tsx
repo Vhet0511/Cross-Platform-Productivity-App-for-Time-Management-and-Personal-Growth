@@ -18,6 +18,8 @@ export default function StickyNoteCreate() {
   const user = storedUser ? JSON.parse(storedUser) : null;
   const userId = user?._id; // Extract userId
 
+  console.log(userId);
+
   // Add a new reminder to the array
   const handleAddReminder = () => {
     setReminders([...reminders, { startTime: '', endTime: '' }]);
@@ -64,7 +66,7 @@ export default function StickyNoteCreate() {
         },
         body: JSON.stringify(noteData),
       });
-
+      console.log(res);
       const data = await res.json();
       if (!res.ok) {
         console.error('Note creation failed', data);
@@ -76,7 +78,6 @@ export default function StickyNoteCreate() {
       console.error('An error occurred while creating the sticky note:', error);
     }
     setIsFormVisible(false);
-    // Refresh the page
     window.location.reload();
     
   };

@@ -10,7 +10,9 @@ export default function StickyNoteView() {
 
   useEffect(() => {
     // Fetch the user ID from the session
-    const userId = "681999b5ff791beb59086e25"; // Replace with session logic if needed
+    const storedUser = sessionStorage.getItem('user');
+  const user = storedUser ? JSON.parse(storedUser) : null;
+    const userId = user?._id; // Extract userId
 
     // Fetch sticky notes from API
     axios

@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import logo from './assets/logo.png';
 import calendarlogo from './assets/calendar logo.png';
 import journallogo from './assets/journal logo.png';
