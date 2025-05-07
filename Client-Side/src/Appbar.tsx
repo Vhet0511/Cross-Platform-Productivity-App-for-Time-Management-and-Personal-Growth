@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import logo from './assets/logo.png';
 import calendarlogo from './assets/calendar logo.png';
 import journallogo from './assets/journal logo.png';
 import stickynoteslogo from './assets/stickynotes logo.png';
-import profilephoto from './assets/profile.jpg';
+import profilephoto from './assets/profile.png';
 import notificationbell from './assets/notification bell.png';
 
 function Appbar({ active, setActive }) {

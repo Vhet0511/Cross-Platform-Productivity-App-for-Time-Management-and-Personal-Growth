@@ -7,7 +7,8 @@ exports.createUser = async (req, res) => {
   try {
     const { email, password, name, dob } = req.body;
     const newUser = new User({ email, password, name, dob });
-    await newUser.save();
+    await newUser.save()
+    console.log(req.body);
     res.status(201).json(newUser);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -62,18 +63,21 @@ exports.deleteUser = async (req, res) => {
 // Login
 exports.loginUser = async (req, res) => {
     try {
+      console.log(`Incoming Request: ${req.method} ${req.path}`);
+
       const { email, password } = req.body;
   
       // Find user by email
       const user = await User.findOne({ email });
       if (!user) return res.status(401).json({ error: "Invalid email or password" });
-  
+
       // Compare passwords
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) return res.status(401).json({ error: "Invalid email or password" });
   
       // Remove password from response
-      const { password: _, ...userData } = user.toObject();
+      const { password: _, ...userData } = user.toObject(); 
+      console.log(req.body);
       res.status(200).json(userData);
   
     } catch (error) {
